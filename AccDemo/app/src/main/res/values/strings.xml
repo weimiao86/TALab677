@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AccDemo</string>
+    <string name="title">AccDemo</string>
+    <string name="initValue">0.0</string>
+</resources>
