@@ -1,17 +1,21 @@
 Simple Usage
 
 • Import this library to your workspace and include in to your android project:
--For Eclipse ADT : Download this library and import into your workspace and include this library to your project.
--For Android Studio : Use Gradle to download this library from Maven.
+
+For Eclipse ADT : Download this library and import into your workspace and include this library to your project.
+For Android Studio : Use Gradle to download this library from Maven.
 
 • Declare permission for library
+
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
 • Declare BluetoothSPP like this
+
 BluetoothSPP bt = new BluetoothSPP(Context);
 
 • Check if bluetooth is now available
+
 if(!bt.isBluetoothAvailable()) {
     // any command for bluetooth is not available
 }
@@ -43,6 +47,7 @@ Bluetooth module with SPP
 • Stop service with
 
 bt.stopService();
+
 • Intent to choose device activity
 
 Intent intent = new Intent(getApplicationContext(), DeviceList.class);
@@ -50,6 +55,7 @@ startActivityForResult(intent, BluetoothState.REQUEST_CONNECT_DEVICE);
 don't forget declare library activty like this
 
 <activity android:name="app.akexorcist.bluetoothspp.DeviceList" />
+
 • After intent to choose device activity and finish that activity. You need to check result data on onActivityResult
 
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -66,6 +72,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
         }
     }
 }
+
 • If you want to send any data. boolean parameter is mean that data will send with ending by LF and CR or not. If yes your data will added by LF & CR
 
 bt.send("Message", true);
@@ -79,6 +86,7 @@ bt.setOnDataReceivedListener(new OnDataReceivedListener() {
         // Do something when data incoming
     }
 });
+
 • Listener for bluetooth connection atatus
 
 bt.setBluetoothConnectionListener(new BluetoothConnectionListener() {
@@ -94,6 +102,7 @@ bt.setBluetoothConnectionListener(new BluetoothConnectionListener() {
         // Do something when connection failed
     }
 });
+
 • Listener when bluetooth connection has changed
 
 bt.setBluetoothStateListener(new BluetoothStateListener() {
@@ -108,6 +117,7 @@ bt.setBluetoothStateListener(new BluetoothStateListener() {
             // Do something when device don't have any connection
     }
 });
+
 • Using auto connection
 
 bt.autoConnect("Keyword for filter paired device");
@@ -122,6 +132,7 @@ bt.setAutoConnectionListener(new AutoConnectionListener() {
         // Do something when auto connection has started
     }
 });
+
 • Customize device list's layout by create layout which include
 
 list view with id name = "list_devices"
