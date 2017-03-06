@@ -3,12 +3,14 @@ This an example of bluetooth spp library simple usage
 • Import the library to your workspace and include in to your android project:
 
 For Eclipse ADT : Download this library and import into your workspace and include this library to your project.
-For Android Studio : Use Gradle to download this library from Maven.
+For Android Studio : Use Gradle to download this library from Maven: add the line below to dependencies of file "build.gradle(Module:app)"
+
+compile 'com.akexorcist:bluetoothspp:1.0.0'
 
 • Declare permission for library
 
-<uses-permission android:name="android.permission.BLUETOOTH" />
-<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+\<uses-permission android:name="android.permission.BLUETOOTH" />
+\<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
 • Declare BluetoothSPP like this
 
@@ -19,6 +21,7 @@ BluetoothSPP bt = new BluetoothSPP(Context);
 if(!bt.isBluetoothAvailable()) {
     // any command for bluetooth is not available
 }
+
 • Check if bluetooth is not enable when activity is onStart
 
 public void onStart() {
@@ -54,7 +57,7 @@ Intent intent = new Intent(getApplicationContext(), DeviceList.class);
 startActivityForResult(intent, BluetoothState.REQUEST_CONNECT_DEVICE);
 don't forget declare library activty like this
 
-<activity android:name="app.akexorcist.bluetoothspp.DeviceList" />
+/<activity android:name="app.akexorcist.bluetoothspp.DeviceList" />
 
 • After intent to choose device activity and finish that activity. You need to check result data on onActivityResult
 
