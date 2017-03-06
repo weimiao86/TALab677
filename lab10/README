@@ -1,16 +1,17 @@
 Simple Usage
 
-• Import this library to your workspace and include in to your android project For Eclipse ADT : Download this library and import into your workspace and include this library to your project For Android Studio : Use Gradle to download this library from Maven
+• Import this library to your workspace and include in to your android project:
+-For Eclipse ADT : Download this library and import into your workspace and include this library to your project.
+-For Android Studio : Use Gradle to download this library from Maven.
 
 • Declare permission for library
-
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
 • Declare BluetoothSPP like this
-
 BluetoothSPP bt = new BluetoothSPP(Context);
-• Check if bluetooth is now available
 
+• Check if bluetooth is now available
 if(!bt.isBluetoothAvailable()) {
     // any command for bluetooth is not available
 }
@@ -24,6 +25,7 @@ public void onStart() {
         // Do something if bluetooth is already enable
     }
 }
+
 • if bluetooth is ready call this method to start service
 
 For connection with android device
